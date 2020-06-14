@@ -13077,6 +13077,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Sentiment-binary-classification-through-just-one-hidden-layer-definition-using-Python">Sentiment binary classification through just one hidden layer definition using Python<a class="anchor-link" href="#Sentiment-binary-classification-through-just-one-hidden-layer-definition-using-Python">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Summary-of-binary-sentiment-classification-process:">Summary of <code>binary</code> sentiment classification process:<a class="anchor-link" href="#Summary-of-binary-sentiment-classification-process:">&#182;</a></h1><ul>
 <li><p>Create three Counter objects to store positive, negative and total counts</p>
 </li>
@@ -13111,17 +13118,17 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pretty_print_review_and_label</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">:</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">reviews</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="mi">80</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span> <span class="c1"># [:80] limits the number of characters of each review per line</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;reviews.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># What we know!</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/reviews.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># What we know!</span>
 <span class="n">reviews</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span><span class="n">g</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span> <span class="c1"># .lower() methods makes all words lower case for consistent treatment.</span>
 <span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;labels.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># What we WANT to know!</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/labels.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># What we WANT to know!</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span><span class="n">g</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
 <span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -13133,7 +13140,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[153]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -13421,7 +13428,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[155]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">split_frac</span> <span class="o">=</span> <span class="mf">0.8</span>
@@ -13444,17 +13451,17 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[157]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># instantiate the model</span>
-<span class="n">mlp_full</span> <span class="o">=</span> <span class="n">SentimentNetwork</span><span class="p">(</span><span class="n">reviews</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">],</span><span class="n">labels</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">],</span><span class="n">min_count</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span><span class="n">polarity_cutoff</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">mlp_full</span> <span class="o">=</span> <span class="n">SentimentNetwork</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span><span class="n">train_y</span><span class="p">,</span><span class="n">min_count</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">polarity_cutoff</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 
 <span class="c1"># start the clock</span>
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c1"># call th etrain function</span>
 
-<span class="n">mlp_full</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">reviews</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">],</span><span class="n">labels</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">])</span>
+<span class="n">mlp_full</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
 <span class="c1"># print the training time</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total training time is </span><span class="si">%s</span><span class="s2"> minutes.&quot;</span> <span class="o">%</span> <span class="nb">round</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
@@ -13474,15 +13481,15 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Progress:0.0% Speed(reviews/sec):0 #Correct:0 #Trained:1 Training Accuracy:0.0%
-Progress:12.5% Speed(reviews/sec):8422. #Correct:2023 #Trained:2501 Training Accuracy:80.8%
-Progress:25.0% Speed(reviews/sec):7505. #Correct:4039 #Trained:5001 Training Accuracy:80.7%
-Progress:37.5% Speed(reviews/sec):7608. #Correct:6109 #Trained:7501 Training Accuracy:81.4%
-Progress:50.0% Speed(reviews/sec):7614. #Correct:8200 #Trained:10001 Training Accuracy:81.9%
-Progress:62.5% Speed(reviews/sec):7662. #Correct:10342 #Trained:12501 Training Accuracy:82.7%
-Progress:75.0% Speed(reviews/sec):7583. #Correct:12436 #Trained:15001 Training Accuracy:82.9%
-Progress:87.5% Speed(reviews/sec):7469. #Correct:14536 #Trained:17501 Training Accuracy:83.0%
-Progress:99.9% Speed(reviews/sec):7485. #Correct:16681 #Trained:20000 Training Accuracy:83.4%
-Total training time is 0.065 minutes.
+Progress:12.5% Speed(reviews/sec):1439. #Correct:1943 #Trained:2501 Training Accuracy:77.6%
+Progress:25.0% Speed(reviews/sec):1386. #Correct:4002 #Trained:5001 Training Accuracy:80.0%
+Progress:37.5% Speed(reviews/sec):1390. #Correct:6118 #Trained:7501 Training Accuracy:81.5%
+Progress:50.0% Speed(reviews/sec):1398. #Correct:8272 #Trained:10001 Training Accuracy:82.7%
+Progress:62.5% Speed(reviews/sec):1399. #Correct:10432 #Trained:12501 Training Accuracy:83.4%
+Progress:75.0% Speed(reviews/sec):1398. #Correct:12553 #Trained:15001 Training Accuracy:83.6%
+Progress:87.5% Speed(reviews/sec):1397. #Correct:14677 #Trained:17501 Training Accuracy:83.8%
+Progress:99.9% Speed(reviews/sec):1390. #Correct:16867 #Trained:20000 Training Accuracy:84.3%
+Total training time is 0.28 minutes.
 </pre>
 </div>
 </div>
@@ -13493,10 +13500,10 @@ Total training time is 0.065 minutes.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[158]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlp</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">reviews</span><span class="p">[</span><span class="n">split_idx</span><span class="p">:],</span><span class="n">labels</span><span class="p">[</span><span class="n">split_idx</span><span class="p">:])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlp_full</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">val_x</span><span class="p">,</span> <span class="n">val_y</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13513,7 +13520,37 @@ Total training time is 0.065 minutes.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Progress:99.9% Speed(reviews/sec):5558. #Correct:4356 #Tested:5000 Testing Accuracy:87.1%</pre>
+<pre>Progress:99.9% Speed(reviews/sec):2287. #Correct:2194 #Tested:2500 Testing Accuracy:87.7%</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlp_full</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Progress:99.9% Speed(reviews/sec):2309. #Correct:2158 #Tested:2500 Testing Accuracy:86.3%</pre>
 </div>
 </div>
 
@@ -13524,7 +13561,7 @@ Total training time is 0.065 minutes.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Alternative-solution:-Sentiment-Analysis-with-an-RNN">Alternative solution: Sentiment Analysis with an RNN<a class="anchor-link" href="#Alternative-solution:-Sentiment-Analysis-with-an-RNN">&#182;</a></h1>
+<h1 id="Alternative-solution:-Sentiment-Analysis-with-an-RNN---LSTM">Alternative solution: Sentiment Analysis with an RNN - LSTM<a class="anchor-link" href="#Alternative-solution:-Sentiment-Analysis-with-an-RNN---LSTM">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13534,9 +13571,9 @@ Total training time is 0.065 minutes.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># read data from text files</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;reviews.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/reviews.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">reviews</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;labels.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/labels.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 
@@ -13735,7 +13772,7 @@ Test set: 		(2500, 200)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;network_diagram.png&#39;</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;assets/network_diagram.png&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
